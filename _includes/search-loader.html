@@ -10,6 +10,7 @@
       <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
         {categories}
         {tags}
+        {author_names}
       </div>
     </header>
     <p>{snippet}</p>
@@ -27,6 +28,7 @@
       json: '{{ '/assets/js/data/search.json' | relative_url }}',
       searchResultTemplate: '{{ result_elem | strip_newlines }}',
       noResultsText: '{{ not_found }}',
+      limit: 1024,
       templateMiddleware: function(prop, value, template) {
         if (prop === 'categories') {
           if (value === '') {
@@ -40,7 +42,15 @@
           if (value === '') {
             return `${value}`;
           } else {
-            return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`;
+            return `<div class="me-sm-4"><i class="fa fa-tag fa-fw"></i>${value}</div>`;
+          }
+        }
+
+        if (prop === 'author_names') {
+          if (value === '') {
+            return `${value}`;
+          } else {
+            return `<div><i class="fa fa-user fa-fw"></i>${value}</div>`;
           }
         }
       }

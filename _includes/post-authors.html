@@ -1,0 +1,13 @@
+{% if include.author %}
+  {% assign authors = include.author %}
+{% elsif include.authors %}
+  {% assign authors = include.authors %}
+{% endif %}
+{% assign author_names = '' | split: '' %}
+{% if authors %}
+  {% for author in authors %}
+    {% assign author_names = author_names | push: site.data.authors[author].name %}
+  {% endfor %}
+{% else %}
+  {% assign author_names = author_names | push: site.social.name %}
+{% endif %}

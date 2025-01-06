@@ -2,6 +2,7 @@
 layout: compress
 swcache: true
 ---
+{% include lang.html %}
 
 [
   {% for post in site.posts %}
@@ -10,9 +11,11 @@ swcache: true
     "url": {{ post.url | relative_url | jsonify }},
     "categories": {{ post.categories | join: ', ' | jsonify }},
     "tags": {{ post.tags | join: ', ' | jsonify }},
+    {% include post-authors.html author=post.author authors=post.authors %}
+    "author_names": {{ author_names | join: ', ' | jsonify }},
     "date": "{{ post.date }}",
     {% include no-linenos.html content=post.content %}
-    {% assign _content = content | strip_html | strip_newlines %}
+    {% assign _content = content | strip_html | strip_newlines | default: 'site.data.locales[lang].search.no_content' %}
     "snippet": {{ _content | truncate: 200 | jsonify }},
     "content": {{ _content | jsonify }}
   }{% unless forloop.last %},{% endunless %}
