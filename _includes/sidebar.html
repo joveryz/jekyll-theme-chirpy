@@ -1,5 +1,10 @@
 <!-- The Side Bar -->
 
+{% assign anniversary_date_in_seconds = "2016-06-08 +0800" | date: "%s" %}
+{% assign now_in_seconds = 'now' | date: '%s' %}
+{% assign diff_in_seconds = now_in_seconds | minus: anniversary_date_in_seconds %}
+{% assign diff_in_days = diff_in_seconds | divided_by: 3600 | divided_by: 24 %}
+
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper">
     <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
@@ -91,6 +96,10 @@
         </a>
       {% endif %}
     {% endfor %}
+
+    <p class="site-subtitle fst-italic mb-0">
+      C&A have been together for <strong>{{ diff_in_days }}</strong> days since Jun 8, 2016.
+    </p>
   </div>
   <!-- .sidebar-bottom -->
 </aside>
