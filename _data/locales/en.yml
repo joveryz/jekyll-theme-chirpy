@@ -21,6 +21,7 @@ search:
   hint: search
   cancel: Cancel
   no_results: Oops! No results found.
+  no_content: No content available.
 
 panel:
   lastmod: Recently Updated
@@ -40,10 +41,10 @@ copyright:
     Except where otherwise noted, the blog posts on this site are licensed
     under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
 
-meta: Using the :THEME theme for :PLATFORM.
+meta: Proudly powered by :PLATFORM with :THEME.
 
 not_found:
-  statement: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
+  statement: Oops, we've misplaced that URL or it's pointing to something that doesn't exist.
 
 notification:
   update_found: A new version of content is available.
@@ -76,7 +77,7 @@ post:
 df:
   post:
     strftime: "%b %e, %Y"
-    dayjs: "ll"
+    dayjs: "ll Z"
   archives:
     strftime: "%b"
     dayjs: "MMM"
