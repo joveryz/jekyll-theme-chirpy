@@ -10,6 +10,8 @@ swcache: true
     "url": {{ post.url | relative_url | jsonify }},
     "categories": {{ post.categories | join: ', ' | jsonify }},
     "tags": {{ post.tags | join: ', ' | jsonify }},
+    {% include post-authors.html author=post.author authors=post.authors %}
+    "author_names": {{ author_names | join: ', ' | jsonify }},
     "date": {{ post.date | jsonify }},
     {% capture content -%}{% include post-summary.html full_text=true %}{%- endcapture -%}
     "content": {{ content | jsonify }}
