@@ -1,0 +1,52 @@
+/* Inline color utility classes — use with Kramdown IAL: *text*{: .clr-blue} */
+
+/* --- Blues --- */
+.clr-blue        { color: dodgerblue;   }
+.clr-navy        { color: navy;         }
+.clr-skyblue     { color: deepskyblue;  }
+.clr-steelblue   { color: steelblue;    }
+.clr-royalblue   { color: royalblue;    }
+
+/* --- Greens --- */
+.clr-green       { color: limegreen;    }
+.clr-darkgreen   { color: seagreen;     }
+.clr-emerald     { color: mediumseagreen; }
+.clr-olive       { color: olivedrab;    }
+.clr-mint        { color: mediumaquamarine; }
+.clr-teal        { color: teal;         }
+
+/* --- Reds & Oranges --- */
+.clr-red         { color: tomato;       }
+.clr-crimson     { color: crimson;      }
+.clr-darkred     { color: firebrick;    }
+.clr-orange      { color: orange;       }
+.clr-darkorange  { color: darkorange;   }
+.clr-coral       { color: coral;        }
+
+/* --- Yellows & Browns --- */
+.clr-yellow      { color: gold;         }
+.clr-amber       { color: #ffbf00;      }
+.clr-khaki       { color: darkkhaki;    }
+.clr-brown       { color: sienna;       }
+.clr-chocolate   { color: chocolate;    }
+
+/* --- Purples & Pinks --- */
+.clr-purple      { color: mediumpurple; }
+.clr-violet      { color: blueviolet;   }
+.clr-indigo      { color: indigo;       }
+.clr-magenta     { color: mediumvioletred; }
+.clr-pink        { color: hotpink;      }
+.clr-rose        { color: #fb7185;      }
+.clr-plum        { color: plum;         }
+
+/* --- Cyans & Aquas --- */
+.clr-cyan        { color: cyan;         }
+.clr-aqua        { color: darkturquoise; }
+.clr-turquoise   { color: mediumturquoise; }
+
+/* --- Neutrals --- */
+.clr-gray        { color: gray;         }
+.clr-silver      { color: silver;       }
+.clr-slate       { color: slategray;    }
+.clr-white       { color: white;        }
+.clr-black       { color: #333;         }
