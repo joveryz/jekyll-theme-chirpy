@@ -1,0 +1,146 @@
+/* Table enhancement: sorting & filtering */
+
+/* --- Filter toggle button --- */
+.table-wrapper {
+  position: relative;
+
+  .table-filter-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid var(--tb-border-color, #ddd);
+    border-radius: 4px;
+    background-color: var(--card-bg, #fff);
+    color: var(--text-muted-color, #999);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s, background-color 0.2s;
+
+    &:hover {
+      opacity: 1;
+      color: var(--text-color, inherit);
+    }
+
+    &.active {
+      opacity: 1;
+      color: var(--link-color, #0056b3);
+      border-color: var(--link-color, #0056b3);
+    }
+  }
+}
+
+.table-wrapper > table.table-enhanced {
+  /* Lock column widths so filter toggle doesn't cause reflow */
+  table-layout: fixed;
+
+  /* --- Sortable headers --- */
+  thead th.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 1.4em;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--tb-odd-bg, #f5f5f5);
+    }
+
+    /* Sort direction indicator */
+    &::after {
+      content: '⇅';
+      position: absolute;
+      right: 0.35em;
+      opacity: 0.3;
+      font-size: 0.75em;
+    }
+
+    &[data-sort-dir='asc']::after {
+      content: '▲';
+      opacity: 0.8;
+    }
+
+    &[data-sort-dir='desc']::after {
+      content: '▼';
+      opacity: 0.8;
+    }
+  }
+
+  /* --- Filter row --- */
+  thead tr.table-filter-row {
+    background-color: transparent !important;
+
+    td {
+      padding: 0 1rem;
+      border-bottom: none;
+      height: 0;
+      overflow: hidden;
+      transition: padding 0.25s ease, height 0.25s ease;
+    }
+
+    input[type='text'] {
+      display: block;
+      max-height: 0;
+      margin: 0;
+      padding: 0 0.4rem;
+      border-color: transparent;
+      opacity: 0;
+      transition: max-height 0.25s ease, padding 0.25s ease,
+        border-color 0.25s ease, opacity 0.2s ease;
+    }
+
+    &.visible {
+      td {
+        padding: 0.4rem 1rem;
+        height: auto;
+        border-bottom: solid 2px rgb(210 215 217 / 75%);
+      }
+
+      input[type='text'] {
+        max-height: 3em;
+        padding: 0.2rem 0.4rem;
+        border-color: var(--tb-border-color, #ddd);
+        opacity: 1;
+      }
+    }
+
+    input[type='text'] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.85em;
+      border: 1px solid var(--tb-border-color, #ddd);
+      border-radius: 4px;
+      background-color: var(--card-bg, #fff);
+      color: var(--text-color, inherit);
+      outline: none;
+      transition: border-color 0.2s ease;
+
+      &::placeholder {
+        color: var(--text-muted-color, #999);
+        opacity: 0.7;
+      }
+
+      &:focus {
+        border-color: var(--link-color, #0056b3);
+        box-shadow: 0 0 0 2px rgb(0 86 179 / 15%);
+      }
+    }
+  }
+
+  /* --- Zebra-stripe overrides for sorted/filtered rows --- */
+  tbody tr.odd-row {
+    background-color: var(--tb-odd-bg, #fbfcfd) !important;
+  }
+
+  tbody tr.even-row {
+    background-color: var(--tb-even-bg, transparent) !important;
+  }
+}
