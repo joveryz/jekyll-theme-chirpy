@@ -116,6 +116,11 @@ layout: default
                     {% endfor %}
                   </span>
                 {% endif %}
+                
+                <!-- authors -->
+                <i class="far fa-user fa-fw me-1"></i>
+                {% include post-authors.html author=post.author authors=post.authors %}
+                {{ author_names | join: ', ' }}
               </div>
 
               {% if post.pin %}
